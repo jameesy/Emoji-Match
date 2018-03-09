@@ -16,11 +16,18 @@ body {
     padding: 0;
 }
 
+/**
+ * Website background
+ */
 body {
-    background: #ffffff ; 
-    font-family: 'Coda', cursive;
+  background: url('../img/websiteBackground.png');
+  font-family: 'Coda', cursive;
 }
 
+/**
+  * Container box
+  *  Contains all elements of the game inside it.
+  */
 .container {
     display: flex;
     justify-content: center;
@@ -28,83 +35,190 @@ body {
     flex-direction: column;
 }
 
+/** Title: Memory Game */
 h1 {
-    font-family:'Bungee', cursive;
+    font-family: 'Bungee', cursive;
     font-weight: 300;
-    font-size: 2.5em;
 }
 
-/*
+/**
+ * Score Panel
+ */
+
+ .score-panel {
+     text-align: left;
+     width: 400px;
+     margin-bottom: 10px;
+ }
+
+ .score-panel .stars {
+     margin: 0;
+     padding: 0;
+     display: inline-block;
+     margin: 0 10px 0 0;
+ }
+
+/** Removes the dot points and places the stars horizontally */
+ .score-panel .stars li {
+   list-style: none;
+   display: inline-block;
+}
+
+.timer_container li {
+  list-style: none;
+  display: inline-block;
+}
+
+/** Places the restart button on the RHS */
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    display: inline;
+}
+
+.moves_text {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.timer_container {
+  float: right;
+  margin-right: 10px;
+}
+
+.timer {
+  display: inline;
+}
+
+.colon_one {
+  visibility: hidden;
+}
+
+.minutes {
+  visibility: hidden;
+}
+
+.colon_two {
+  visibility: hidden;
+}
+
+.hours {
+  visibility: hidden;
+}
+
+/** MODAL */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: #ffffff;
+}
+
+  /* Modal Content/Box */
+.modal_content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding-left: 25%;
+    padding-right: 25%;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal_content .congratulatory_message {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+.modal_content p {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.play_again_button {
+    background-color: #00B9A9;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.play_again_button:hover,
+.play_again_button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.play_again_button_container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/**
+ * Deck
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #fd8d24 0%, #f8e91c 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+   width: 660px;
+   min-height: 680px;
+   background: linear-gradient(160deg, #fd8d24 0%, #f8e91c 100%);
+   padding: 32px;
+   border-radius: 10px;
+   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+   height: 125px;
+   width: 125px;
+   background: #2e3d49;
+   /** font-size: 0 makes the icons disappear */
+   font-size: 0px;
+   color: #ffffff;
+   border-radius: 8px;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #cc1002;
-    cursor: default;
-}
-
-.deck .card.show {
-    font-size: 33px;
+   transform: rotateY(0);
+   background: #f7e2a8;
+   cursor: default;
+   font-size: 33px;
 }
 
 .deck .card.match {
-    cursor: default;
-    background: #d6a503e3;
-    font-size: 33px;
+   cursor: default;
+   background: #108800e3;
+   font-size: 33px;
 }
 
-/*
- * Styles for the Score Panel
- */
-
-.score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+.deck .card.not-a-match {
+   cursor: default;
+   background: #cc1002;
+   font-size: 33px;
 }
 
-.score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-}
-
-.score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-.score-panel .restart {
-    float: right;
-    cursor: pointer;
+.deck .card:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
