@@ -1,26 +1,35 @@
 $(document).ready(function() {
 
-  /**
+  /*
    * Variables
    */
+
   // To determine the start and end of a move
   var moves_taken = 0;
   var first_move = 0;
   var second_move = 1;
   var total_moves_per_turn = 2;
+
+
   // To determine when the game is won
   var card_pairs_matched = 0;
   var total_card_pairs = 8;
-  /** Moves counter */
+
+
+  // Moves counter
   var moves_counter = 0;
   var performance_rating = "3 stars";
-  /** Timer */
+
+
+  // Timer
   var hours = 1;
   var minutes = 1;
   var seconds = 1;
   var timer_start = false;
   var game_timer;
-  /** Modal */
+
+
+  // Modal
   var modal_element = $('.modal');
   
   var performance_rating_element = $('.performance_rating');
@@ -31,6 +40,8 @@ $(document).ready(function() {
   var time_taken_string = "Time taken: ";
   var moves_taken_string = "Moves taken: ";
   
+
+
     /*
      * List of cards (total of 16)
      */
@@ -53,62 +64,67 @@ $(document).ready(function() {
       "em em-flushed",
       "em em-hankey"];
   
-      /**
+      /*
       * CARDS
       * This code will run when a card is clicked (game functionaility).
-      * Note: Cards will flip and whether a successful/failed match occurs,
-      * it will trigger an appropriate response.
       */
   
       $('.card').click(function() {
-        /** Code to run if it is the first move in the turn */
+        /* Code to run if it is the first move in the turn */
         if(moves_taken === first_move) {
           $(this).addClass('open');
-          /** First card object and its card type  */
+          /* First card object and its card type  */
           first_card = $(this);
           first_card_type = $(this).find('i').attr('class');
-          /** This allows the program to determine second mvoe from the first */
+          /* This allows the program to determine second move from the first */
           moves_taken = moves_taken + 1;
         }
-        /** Code to run if it is the second move in the turn */
+
+        /* Code to run if it is the second move in the turn */
         else if (moves_taken === second_move) {
           $(this).addClass('open');
-          /** Second card object and its card type */
+          /* Second card object and its card type */
           second_card = $(this);
           second_card_type = $(this).find('i').attr('class');
-          /** Colour codes the cards based on whether the cards match or not */
+          /* Colour codes the cards based on whether the cards match or not */
           if (first_card_type === second_card_type) {
             cardMatchSuccess(first_card, second_card);
-            /** Code to run when the game is won */
+            /* Code to run when the game is won */
             if (card_pairs_matched === total_card_pairs) {
               gameCompleted();
             };
           } else if (first_card_type !== second_card_type) {
             cardMatchFail(first_card, second_card);
           };
-          /** This resets moves_taken so it is the first move again **/
+          /* This resets moves_taken so it is the first move again **/
           moves_taken = 0;
         };
       });
   
-      /**
+      /*
       * CARD MATCH SUCCESSFUL
       * Function to be called when cards successfully match.
       */
+
       function cardMatchSuccess(first_card, second_card) {
         first_card.addClass('match');
+        first_card.addClass('animated tada');
         second_card.addClass('match');
+        second_card.addClass('animated tada');
         card_pairs_matched = card_pairs_matched + 1;
         moves_counter = moves_counter + 1;
         moveCounter(moves_counter);
       }
   
-      /**
+      /*
       * CARD MATCH UNSUCCESSFUL
       * Function to be called when cards do not match.
       */
+
       function cardMatchFail(first_card, second_card) {
+        first_card.addClass('animated shake');
         first_card.addClass('not-a-match');
+        second_card.addClass('animated shake');
         second_card.addClass('not-a-match');
         moves_counter = moves_counter + 1;
         /** Flips incorrect cards back */
@@ -116,22 +132,25 @@ $(document).ready(function() {
         moveCounter(moves_counter);
       }
   
-      /**
+      /*
       * CARD FLIP
       * Function to be called when a card match is unsuccessful.
       */
+
       function flipCards(first_card, second_card) {
         setTimeout(function(){
               first_card.removeClass('not-a-match open');
+              first_card.removeClass('animated shake');
               second_card.removeClass('not-a-match open');
+              second_card.removeClass('animated shake');
         },1000);
       };
   
-      /**
+      /*
       * MOVE COUNTER
       * This function is called after every turn.
-      * Note: it will increment the move counter by 1 after every turn.
       */
+
       function moveCounter(moves_counter){
         /** Counts the number of moves the player has taken */
         if(moves_counter > 1) {
@@ -142,11 +161,10 @@ $(document).ready(function() {
           $('.moves_text').text("Move");
         };
   
-        /** STAR RATING
-        * This function will be called depending on the move counter, count.
-        * Note: The less moves a player takes to finish the game, the more stars they
-        * will be rewarded. By default, the star rating begins with three stars.
+        /* STAR RATING
+        * This function will be called depending on the total moves.
         */
+
         if (moves_counter === 20) {
           $('#first-star').removeClass('fa-star').addClass('fa-star-o');
           performance_rating = "2 stars";
@@ -159,12 +177,13 @@ $(document).ready(function() {
         }
       };
   
-      /**
+      /*
       * GAME WON
       * Function to be called when the game is won.
       */
+
       function gameCompleted() {
-        // Terminates the game timer once it is finished.
+        // Ends the game timer once it is finished.
         clearInterval(game_timer);
         timer_start = false;
         // Opens the modal
@@ -186,18 +205,15 @@ $(document).ready(function() {
   
       };
   
-      /**
+      /*
       * TIMER
-      * This code will run as soon as the game begins and lasts until it ends.
-      * Note: it is to measure how long it takes the palyer to complete the game,
-      *  and as a point of reference for the player to know how long they're taking.
+      * This code will run as soon as the game begins and lasts until it ends. 
       */
+
       $('.card').click(function() {
         if (timer_start === false) {
           timer();
-          // This essentially prevents the timer() function from running when
-          // every single time a .card element is pressed.
-          // i.e. The timer() function runs only once.
+
           timer_start = true;
         }
       });
@@ -218,44 +234,34 @@ $(document).ready(function() {
               $('.minutes').text(minutes + "m");
               minutes = minutes + 1;
               seconds = seconds + 1;
-  
-              // Hours timer
-              if (minutes === 60) {
-                $('.hours').css('visibility', 'visible');
-                $('.colon_one').css('visibility', 'visible');
-                seconds = 0;
-                minutes = 0;
-                $('.seconds').text(seconds + "s");
-                $('.minutes').text(minutes + "m");
-                $('.hours').text(hours + "hr");
-                hours = hours + 1;
-                minutes = minutes + 1;
-                seconds = seconds + 1;
-                };
             };
           }, 1000);
       };
   
-      /**
+      /*
       * RESTART BUTTON
       * This code will restart the game.
       */
+
       $('.restart').click(function() {
         restartGame();
       });
   
       // Function responsible for restarting the game
       function restartGame() {
-        /**
+
+
+        /*
          * Game board
          */
+
         // Returns all cards and scores back to the default state.
         $('.card').removeClass('open match');
         moves_taken = 0;
         card_pairs_matched = 0;
         performance_rating = "3 stars";
   
-        /** Timer */
+        /* Timer */
         clearInterval(game_timer);
         seconds = 0;
         minutes = 0;
@@ -269,20 +275,20 @@ $(document).ready(function() {
         $('.hours').text(hours);
         timer_start = false;
   
-        /** Moves counter */
+        /* Moves counter */
         moves_counter = 0;
         $('.score-panel').find('.moves').text(moves_counter);
   
-        /** Star rating */
+        /* Star rating */
         $('#first-star').removeClass('fa-star-o').addClass('fa-star');
         $('#second-star').removeClass('fa-star-o').addClass('fa-star');
         $('#third-star').removeClass('fa-star-o').addClass('fa-star');
   
-        /** Shuffles all the cards */
+        /* Shuffles all the cards */
         shuffle(card_deck);
         var shuffled_deck = card_deck;
   
-        // Assigns new class values to each card, which in turn changes what they show
+        // Assigns new class values to each card - not currently working
         $('#card_1').removeClass().addClass(shuffled_deck[0]);
         $('#card_2').removeClass().addClass(shuffled_deck[1]);
         $('#card_3').removeClass().addClass(shuffled_deck[2]);

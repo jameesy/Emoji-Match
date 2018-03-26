@@ -16,18 +16,11 @@ body {
     padding: 0;
 }
 
-/**
- * Website background
- */
 body {
-  background: url('../img/websiteBackground.png');
   font-family: 'Coda', cursive;
 }
 
-/**
-  * Container box
-  *  Contains all elements of the game inside it.
-  */
+
 .container {
     display: flex;
     justify-content: center;
@@ -35,15 +28,10 @@ body {
     flex-direction: column;
 }
 
-/** Title: Memory Game */
 h1 {
     font-family: 'Bungee', cursive;
     font-weight: 300;
 }
-
-/**
- * Score Panel
- */
 
  .score-panel {
      text-align: left;
@@ -58,7 +46,6 @@ h1 {
      margin: 0 10px 0 0;
  }
 
-/** Removes the dot points and places the stars horizontally */
  .score-panel .stars li {
    list-style: none;
    display: inline-block;
@@ -69,7 +56,6 @@ h1 {
   display: inline-block;
 }
 
-/** Places the restart button on the RHS */
 .score-panel .restart {
     float: right;
     cursor: pointer;
@@ -117,18 +103,17 @@ h1 {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: #ffffff;
+    background-color: rgba(241, 109, 1, 0.336);
 }
 
   /* Modal Content/Box */
 .modal_content {
-    background-color: #fefefe;
+    background-color: #ffe8db;
     margin: 15% auto; /* 15% from the top and centered */
-    padding-left: 25%;
-    padding-right: 25%;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 2px solid rgb(0, 0, 0);
+    width: 60%; /* Could be more or less, depending on screen size */
 }
 
 .modal_content .congratulatory_message {
@@ -143,7 +128,7 @@ h1 {
 }
 
 .play_again_button {
-    background-color: rgb(68, 185, 0);
+    background-color: rgba(82, 179, 27, 0.76);
     color: #ffffff;
     font-size: 16px;
     padding: 10px 20px;
@@ -155,10 +140,12 @@ h1 {
 
 .play_again_button:hover,
 .play_again_button:focus {
+  background-color: rgba(23, 87, 21, 0.336)
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
+
 
 .play_again_button_container {
   margin-bottom: 20px;
@@ -201,7 +188,7 @@ h1 {
 
 .deck .card.open {
    transform: rotateY(0);
-   background: #f7e2a8;
+   background: #a07500;
    cursor: default;
    font-size: 33px;
 }
