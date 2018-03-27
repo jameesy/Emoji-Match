@@ -1,3 +1,2 @@
 # Emoji Match
-
-## A Memory Game with my favourite Emojis. Nothing more, nothing less.
+## Turn the cards, match the Emojis, save the day!
