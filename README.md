@@ -3,7 +3,7 @@
 
 ### I WANT TO PLAY IT!
 Alright, alright! Steady mate! Play it on my Codepen --->https://codepen.io/JABedford/pen/vRrvwE
-
+I will host it on my website as and when, but for now Codepen will do!
 
 ### About
 The Emoji Match game is coursework for the Udacity Front-End Nanodegree. I was provided with a basic HTML and CSS file, and given a product specification and the rest is left up to the participant. I decided to go with Emojis as it was a bit more aesthetic than the standard icons provided.
