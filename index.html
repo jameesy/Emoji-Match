@@ -1,130 +1,60 @@
+<!doctype html>
 <html lang="en">
+
 <head>
-  <!-- Allows us to write text in languages -->
-  <meta charset="utf-8">
-  <title>Memory Game</title>
-  <!-- Assists with SEO -->
-  <meta name="description" content="">
-  <!-- CSS -->
+    <meta charset="utf-8">
+    <title>Emoji Match</title>
+    <meta name="description" content="">
+
+  <!-- Font Awesome for the Stars -->
   <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+  
+  <!-- Emoji CSS -->
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+  <!-- Google Font "Bungee" -->
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet"> 
+
+  <!-- Animate CSS courtesy of -> https://daneden.github.io/animate.css/-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
-  <link rel="stylesheet" href="css/app.css">
+  <!-- Ma CSS file -->
+  <link rel="stylesheet" href="CSS/app.css">
+
 </head>
 
 <body>
 
-<div class="container">
-  <header>
-    <h1>Em <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i> ji Match</h1>
-  </header>
+    <div class="container">
+        <header>
+            <h1>Em <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i> ji Match</h1>
+        </header>
 
-  <section class="score-panel">
+        <section class="score-panel">
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
 
-    <!-- Rating Bar -->
-  	<ul class="stars">
-  		<li><i class="fa fa-star" id="first-star"></i></li>
-  		<li><i class="fa fa-star" id="second-star"></i></li>
-  		<li><i class="fa fa-star" id="third-star"></i></li>
-  	</ul>
+            &nbsp;&nbsp;<span id="timer">0.00</span>
 
-    <!-- Move Counter -->
-    <span class="moves">0</span> <p class="moves_text">Moves</p>
+            <span class="moves">0</span> Moves
 
-    <!-- Restart button -->
-    <div class="restart">
-  		<i class="fa fa-repeat"></i>
-  	</div>
+            <div class="restart">
+                <i class="fa fa-repeat"></i>
+            </div>
+        </section>
 
-    <!-- Timer -->
-    <div class="timer_container">
-  		<ul class="timer">
-        <li class="hours">00</li>
-        <li class="colon_one">:</li>
-        <li class="minutes">00</li>
-        <li class="colon_two">:</li>
-        <li class="seconds">0s</li>
-      </ul>
-  	</div>
 
-    <!-- The Modal -->
-    <div class="modal">
-      <div class="modal_content">
-        <p class="congratulatory_message">Congratulations, you won! <i class="em em-clap"></i><i class="em em-clap"></i></p>
-        <p class="performance_rating"></p>
-        <p class="time_taken"></p>
-        <p class="moves_taken"></p>
+        <ul class="deck" id="cards"></ul>
 
-        <div class="play_again_button_container">
-          <button class="play_again_button">Play again</button>
-        </div>
-      </div>
+
     </div>
 
-  </section>
-
-  <!-- DECK OF CARDS -->
-  <!-- This deck contains the cards that the player needs to match. -->
-  <ul class="deck">
-    <li class="card">
-      <i class="em em-flushed" id="card_1"></i>
-    </li>
-    <li class="card">
-      <i class="em em-hankey" id="card_2"></i>
-    </li>
-    <li class="card">
-      <i class="em em-eggplant" id="card_3"></i>
-    </li>
-    <li class="card">
-      <i class="em em-nerd_face" id="card_4"></i>
-    </li>
-    <li class="card">
-      <i class="em em-peach" id="card_5"></i>
-    </li>
-    <li class="card">
-      <i class="em em-eggplant" id="card_6"></i>
-    </li>
-    <li class="card">
-      <i class="em em-rolling_on_the_floor_laughing" id="card_7"></i>
-    </li>
-    <li class="card">
-      <i class="em em-heart_eyes" id="card_8"></i>
-    </li>
-    <li class="card">
-      <i class="em em-ok_hand" id="card_9"></i>
-    </li>
-    <li class="card">
-      <i class="em em-peach" id="card_10"></i>
-    </li>
-    <li class="card">
-      <i class="em em-rolling_on_the_floor_laughing" id="card_11"></i>
-    </li>
-    <li class="card">
-      <i class="em em-hankey" id="card_12"></i>
-    </li>
-    <li class="card">
-      <i class="em em-heart_eyes" id="card_13"></i>
-    </li>
-    <li class="card">
-      <i class="em em-nerd_face" id="card_14"></i>
-    </li>
-    <li class="card">
-      <i class="em em-flushed" id="card_15"></i>
-    </li>
-    <li class="card">
-      <i class="em em-ok_hand" id="card_16"></i>
-    </li>
-  </ul>
-
-</div>
-
-<!-- JAVASCRIPT -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="JS/app.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/app.js"></script>
+    
 </body>
 
 </html>
