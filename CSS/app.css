@@ -67,7 +67,7 @@ h1 {
 .deck .card.open {
   background: #a07500;
   cursor: default;
-animation-duration: 1s;
+  animation-duration: 1s;
   animation-name: pulse;
 }
 
@@ -109,11 +109,10 @@ animation-duration: 1s;
 }
 
 .deck .card.disabled {
-pointer-events: none;
+  pointer-events: none;
 }
-
 
 #timer {
   margin: auto;
-text-align: center;
+  text-align: center;
 }

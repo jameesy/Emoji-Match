@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Emoji Match</title>
-    <meta name="description" content="">
+  <meta charset="utf-8">
+  <title>Emoji Match</title>
+  <meta name="description" content="">
 
   <!-- Font Awesome for the Stars -->
   <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-  
+
   <!-- Emoji CSS -->
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
   <!-- Google Font "Bungee" -->
-  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 
   <!-- Animate CSS courtesy of -> https://daneden.github.io/animate.css/-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
@@ -25,36 +25,45 @@
 
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Em <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i> ji Match</h1>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Em
+        <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i> ji Match</h1>
+    </header>
 
-        <section class="score-panel">
-            <ul class="stars">
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-            </ul>
+    <section class="score-panel">
+      <ul class="stars">
+        <li>
+          <i class="fa fa-star"></i>
+        </li>
+        <li>
+          <i class="fa fa-star"></i>
+        </li>
+        <li>
+          <i class="fa fa-star"></i>
+        </li>
+      </ul>
 
-            &nbsp;&nbsp;<span id="timer">0.00</span>
+      &nbsp;&nbsp;
+      <span id="timer">0.00</span>
 
-            <span class="moves">0</span> Moves
+      &nbsp;&nbsp;
+      <span class="moves">0</span> Moves
 
-            <div class="restart">
-                <i class="fa fa-repeat"></i>
-            </div>
-        </section>
-
-
-        <ul class="deck" id="cards"></ul>
+      <div class="restart">
+        <i class="fa fa-repeat"></i>
+      </div>
+    </section>
 
 
-    </div>
+    <ul class="deck" id="cards"></ul>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="JS/app.js"></script>
-    
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="JS/app.js"></script>
+
 </body>
 
 </html>
